@@ -53,7 +53,7 @@ with open(f'elcomercio.csv', mode='w') as data:
             else:
                 fecha = datetime.datetime.strptime(fecha, "%Y-%m-%d").strftime("%d/%m/%Y")
                 # print(fecha)
-            tipo = card.find('a', attrs={'class':'story-item__section'}).get('href')
+            seccion = card.find('a', attrs={'class':'story-item__section'}).get('href')
             titulo = card.find('a', attrs={'class':'story-item__title'}).getText()
             subtitulo = card.find('p', attrs={'class':'story-item__subtitle'}).getText()
             linkParcial = card.find('a', attrs={'class':'story-item__title'}).get('href')
@@ -62,7 +62,7 @@ with open(f'elcomercio.csv', mode='w') as data:
 
             writer.writerow([ 
                 "articulo",
-                tipo,
+                seccion,
                 titulo,
                 subtitulo,
                 linkTotal,
